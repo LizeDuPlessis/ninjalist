@@ -16,10 +16,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const response = await fetch(
-    "https://jsonplaceholder.typicode.com/users/" + id
-  );
-  const data = await response.json();
+  const res = await fetch("https://jsonplaceholder.typicode.com/users/" + id);
+  const data = await res.json();
 
   return {
     props: { ninja: data },
